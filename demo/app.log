@@ -1,0 +1,8 @@
+2026-01-03 10:00:00 INFO  starting service
+2026-01-03 10:00:01 INFO  trying to connect...
+2026-01-03 10:00:02 ERROR failed to connect to db (conn refused)
+2026-01-03 10:00:03 INFO  retry in 1s
+2026-01-03 10:00:04 WARN  slow response
+2026-01-03 10:00:05 error timeout while reading from upstream
+2026-01-03 10:00:06 INFO  recovered
+2026-01-03 10:00:07 ERROR timeout again, giving up
