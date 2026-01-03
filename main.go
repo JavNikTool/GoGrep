@@ -27,17 +27,21 @@ func searchNeedleInFile(path, needle string, fl FlagList) {
 
 	scanner := bufio.NewScanner(f)
 
-	for lineNum := 1; scanner.Scan(); lineNum++ {
-		line := scanner.Text()
+	if fl.ignoreCase {
+		needle = strings.ToLower(needle)
+	}
 
+	for lineNum := 1; scanner.Scan(); lineNum++ {
+		lineRaw := scanner.Text()
+
+		lineCmp := lineRaw
 		if fl.ignoreCase {
-			line = strings.ToLower(line)
-			needle = strings.ToLower(needle)
+			lineCmp = strings.ToLower(lineRaw)
 		}
 
-		if strings.Contains(line, needle) {
+		if strings.Contains(lineCmp, needle) {
 			fmt.Printf("Файл: %s\n", path)
-			fmt.Printf("%v:%v:%v\n", path, lineNum, line)
+			fmt.Printf("%v:%v:%v\n", path, lineNum, lineRaw)
 		}
 	}
 
