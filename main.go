@@ -6,7 +6,7 @@ import (
 	"os"
 
 	gflag "github.com/JavNikTool/GoGrep/flag"
-	"github.com/JavNikTool/GoGrep/search"
+	"github.com/JavNikTool/GoGrep/grep"
 )
 
 func main() {
@@ -31,9 +31,9 @@ func main() {
 	}
 
 	if !file.IsDir() {
-		search.InFile(path, needle, flagList)
+		grep.InFile(path, needle, flagList)
 	} else {
-		search.InDirectory(path, needle, flagList)
+		grep.InDirectory(path, needle, flagList)
 	}
 
 }
